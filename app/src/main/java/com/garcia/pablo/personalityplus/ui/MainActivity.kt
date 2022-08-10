@@ -1,7 +1,8 @@
-package com.garcia.pablo.personalityplus
+package com.garcia.pablo.personalityplus.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.garcia.pablo.personalityplus.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
