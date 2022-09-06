@@ -1,9 +1,9 @@
-package com.garcia.pablo.personalityplus.utils
+package com.garcia.pablo.personalityplus.model.utils
 
-import com.garcia.pablo.personalityplus.entities.BehaviorProfile
-import com.garcia.pablo.personalityplus.entities.Exam
-import com.garcia.pablo.personalityplus.entities.Option
-import com.garcia.pablo.personalityplus.entities.Step
+import com.garcia.pablo.personalityplus.model.entities.BehaviorProfile
+import com.garcia.pablo.personalityplus.model.entities.Exam
+import com.garcia.pablo.personalityplus.model.entities.Option
+import com.garcia.pablo.personalityplus.model.entities.Step
 
 val options1 = listOf(
     Option(

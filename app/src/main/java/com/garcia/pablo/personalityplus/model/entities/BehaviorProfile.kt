@@ -1,4 +1,4 @@
-package com.garcia.pablo.personalityplus.entities
+package com.garcia.pablo.personalityplus.model.entities
 
 enum class BehaviorProfile {
     POPULAR_SANGUINEO,
