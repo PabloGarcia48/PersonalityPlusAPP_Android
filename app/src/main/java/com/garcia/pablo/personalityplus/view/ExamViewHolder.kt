@@ -7,7 +7,8 @@ import com.garcia.pablo.personalityplus.model.entities.Step
 
 class ExamViewHolder(val binding: ItemStepBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Step) {
+    fun bind(item: Step, pos: Int) {
+        binding.tvTitle.text = "Step ${pos + 1}"
         binding.rbOption0.text = getOptionText(item.options[0])
         binding.rbOption1.text = getOptionText(item.options[1])
         binding.rbOption2.text = getOptionText(item.options[2])

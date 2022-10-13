@@ -14,7 +14,8 @@ class ExamAdapter(val exam: Exam) : RecyclerView.Adapter<ExamViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ExamViewHolder, position: Int) {
-        holder.bind(exam.steps[position])
+        val step = exam.steps[position]
+        holder.bind(step, position)
     }
 
     override fun getItemCount(): Int {
