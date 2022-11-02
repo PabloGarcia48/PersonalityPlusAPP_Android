@@ -1,12 +1,10 @@
 package com.garcia.pablo.personalityplus.view
 
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.garcia.pablo.personalityplus.R
 import com.garcia.pablo.personalityplus.databinding.ActivityExamBinding
-import com.garcia.pablo.personalityplus.model.entities.Exam
 import com.garcia.pablo.personalityplus.viewmodel.ExamViewModel
 
 class ExamActivity : AppCompatActivity() {
@@ -18,7 +16,10 @@ class ExamActivity : AppCompatActivity() {
 
     private val onOptionChangedListener = object : OnOptionChangedListener {
         override fun onChanged(stepPosition: Int, radioButtonPosition: Int) {
-            // TODO: Chamar a ViewModel e começar a lógica.
+            examViewModel.onRadioButtonSelected(stepPosition, radioButtonPosition)
+
+
+        //            Log.d("Pablo", "Posição do STEP: $stepPosition, Posição do radioButton: $radioButtonPosition")
         }
     }
 
@@ -44,3 +45,7 @@ class ExamActivity : AppCompatActivity() {
         super.onDestroy()
     }
 }
+
+// encapsulamento fun nomeDaFuncao(o que ela recebe): o que ela retorna
+
+// encapsulamento fun nomeDaFuncao(nomeDaVariavel: TipoDaVariavel): Tipo

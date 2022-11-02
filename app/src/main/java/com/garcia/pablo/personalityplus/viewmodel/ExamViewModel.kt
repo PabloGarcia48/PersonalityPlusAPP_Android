@@ -13,4 +13,8 @@ class ExamViewModel : ViewModel() {
     }
 
 
+    fun onRadioButtonSelected(stepPosition: Int, radioButtonPosition: Int) {
+        // TODO: persistir exame e manipular o option
+    }
+
 }
