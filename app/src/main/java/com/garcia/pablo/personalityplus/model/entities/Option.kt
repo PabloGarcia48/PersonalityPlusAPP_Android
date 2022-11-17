@@ -6,4 +6,3 @@ data class Option(
     val description: String,
     val behaviorProfile: BehaviorProfile
 )
-
