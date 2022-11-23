@@ -17,9 +17,7 @@ class ExamActivity : AppCompatActivity() {
     private val onOptionChangedListener = object : OnOptionChangedListener {
         override fun onChanged(stepPosition: Int, radioButtonPosition: Int) {
             examViewModel.onRadioButtonSelected(stepPosition, radioButtonPosition)
-
-
-        //            Log.d("Pablo", "Posição do STEP: $stepPosition, Posição do radioButton: $radioButtonPosition")
+//            Log.d("Pablo", "Posição do STEP: $stepPosition, Posição do radioButton: $radioButtonPosition")
         }
     }
 
@@ -31,7 +29,7 @@ class ExamActivity : AppCompatActivity() {
         setUpRecyclerView()
 
         binding.btFinish.setOnClickListener {
-            // TODO: Chamar a view model
+            examViewModel.testFinished()
         }
     }
 

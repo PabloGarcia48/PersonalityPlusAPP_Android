@@ -15,9 +15,6 @@ class ExamViewModel : ViewModel() {
 
     fun onRadioButtonSelected(stepPosition: Int, radioButtonPosition: Int) {
         // TODO: Criar teste unitario
-
-        exam.steps[stepPosition].options[radioButtonPosition].behaviorProfile
-
         for (optionPosition in 0..exam.steps[stepPosition].options.size) {
             /**
              * A gente quer percorrer todos os options olhando pro indice deles na lista
@@ -31,6 +28,17 @@ class ExamViewModel : ViewModel() {
                 exam.steps[stepPosition].options[radioButtonPosition].isChecked = true
             } else {
                 exam.steps[stepPosition].options[radioButtonPosition].isChecked = false
+            }
+        }
+    }
+
+    fun testFinished() {
+        var countChecked = 0
+        for (step in exam.steps) {
+            for (option in step.options) {
+                if (option.isChecked == true) {
+                    countChecked += 1
+                }
             }
         }
     }
