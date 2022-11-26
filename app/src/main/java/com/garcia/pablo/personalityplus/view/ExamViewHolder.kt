@@ -18,6 +18,10 @@ class ExamViewHolder(
         binding.rbOption1.text = getOptionText(item.options[1])
         binding.rbOption2.text = getOptionText(item.options[2])
         binding.rbOption3.text = getOptionText(item.options[3])
+        binding.tvOption0.text = getOptionDescription(item.options[0])
+        binding.tvOption1.text = getOptionDescription(item.options[1])
+        binding.tvOption2.text = getOptionDescription(item.options[2])
+        binding.tvOption3.text = getOptionDescription(item.options[3])
 
         binding.rgStep.setOnCheckedChangeListener { group, idRadioButton ->
             val radioButton: RadioButton? = group?.findViewById(idRadioButton)
@@ -29,6 +33,10 @@ class ExamViewHolder(
     }
 
     fun getOptionText(option: Option): String {
-        return "${option.featureName.uppercase()}:\n${option.description}"
+        return "${option.featureName.uppercase()}"
+    }
+
+    fun getOptionDescription(option: Option): String {
+        return "${option.description}"
     }
 }
