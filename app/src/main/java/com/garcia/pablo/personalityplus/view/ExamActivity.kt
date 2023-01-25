@@ -1,7 +1,9 @@
 package com.garcia.pablo.personalityplus.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.garcia.pablo.personalityplus.databinding.ActivityExamBinding
@@ -30,6 +32,18 @@ class ExamActivity : AppCompatActivity() {
 
         binding.btFinish.setOnClickListener {
             examViewModel.testFinished()
+        }
+
+        examViewModel.showValidationError.observe(this) {
+            val text = "Você respondeu $it de 40 perguntas"
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+        }
+
+        examViewModel.showValidationSuccess.observe(this) {
+            val intent = Intent(this, ExamResultActivity::class.java)
+            intent.putExtra("MEU_EXAME", exam)
+            startActivity(intent)
+//            finish() -- Vai fechar a activity atual após navegar para a próxima, removendo ela da pilha
         }
     }
 

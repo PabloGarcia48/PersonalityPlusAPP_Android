@@ -1,13 +1,18 @@
 package com.garcia.pablo.personalityplus.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.garcia.pablo.personalityplus.model.ExamService
 import com.garcia.pablo.personalityplus.model.entities.Exam
+import com.garcia.pablo.personalityplus.model.utils.Event
 
 @Suppress("RedundantIf")
 class ExamViewModel : ViewModel() {
     private val examService: ExamService = ExamService()
     private val exam = examService.getExam()
+
+    val showValidationError = MutableLiveData<Event<Int>>()
+    val showValidationSuccess = MutableLiveData<Event<Exam>>()
 
     fun getExam(): Exam {
         return exam
@@ -33,13 +38,18 @@ class ExamViewModel : ViewModel() {
     }
 
     fun testFinished() {
-        var countChecked = 0
+        var countOptionsChecked = 0
         for (step in exam.steps) {
             for (option in step.options) {
                 if (option.isChecked == true) {
-                    countChecked += 1
+                    countOptionsChecked += 1
                 }
             }
+        }
+        if (countOptionsChecked == 40) {
+            showValidationSuccess.value = Event(exam)
+        } else {
+            showValidationError.value = Event(countOptionsChecked)
         }
     }
 }
