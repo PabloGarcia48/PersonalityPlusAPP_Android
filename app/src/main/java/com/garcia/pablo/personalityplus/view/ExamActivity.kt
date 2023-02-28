@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.garcia.pablo.personalityplus.databinding.ActivityExamBinding
+import com.garcia.pablo.personalityplus.model.utils.EventObserver
 import com.garcia.pablo.personalityplus.viewmodel.ExamViewModel
 
 class ExamActivity : AppCompatActivity() {
@@ -34,17 +35,17 @@ class ExamActivity : AppCompatActivity() {
             examViewModel.testFinished()
         }
 
-        examViewModel.showValidationError.observe(this) {
-            val text = "Você respondeu $it de 40 perguntas"
+        examViewModel.showValidationError.observe(this, EventObserver {
+            val text = "Você respondeu ${it} de 40 perguntas"
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-        }
+        })
 
-        examViewModel.showValidationSuccess.observe(this) {
+        examViewModel.showValidationSuccess.observe(this, EventObserver {
             val intent = Intent(this, ExamResultActivity::class.java)
             intent.putExtra("MEU_EXAME", exam)
             startActivity(intent)
 //            finish() -- Vai fechar a activity atual após navegar para a próxima, removendo ela da pilha
-        }
+        })
     }
 
     fun setUpRecyclerView() {
